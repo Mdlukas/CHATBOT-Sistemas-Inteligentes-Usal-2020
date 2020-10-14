@@ -1,0 +1,19 @@
+{"contenido":[
+    {"tag":"saludo",
+        "patrones":["hola","un saludo","hello"],
+        "respuestas":["Hola que tal!","Como te va?","Un gusto de verte"]
+    },
+    {"tag":"despedida",
+        "patrones":["adios","nos vemos","hasta la proxima"],
+        "respuestas": ["cuidate","adios","nos vemos pronto"]
+    },
+    {"tag":"alfredo",
+        "patrones":["quien es alfredo","alfred"],
+        "respuestas": ["Un raton jaja saludos."]
+    },
+    {"tag":"python",
+        "patrones":["que es Python?","Lenguaje de programacion Python", "Ayuda Python"],
+        "respuestas": ["Python es un lenguaje de programacion no tipado utilizado para muchas aplicaciones profesionales  \r\n  desde videojuegos hasta Machine Learning; Para mas informacion sobre Python deberias dirigirte a: https://www.python.org/"]
+    }
+]
+}
