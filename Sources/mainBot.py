@@ -88,10 +88,15 @@ modelo = tflearn.DNN(red)
 modelo.fit(entrenamiento,salida,n_epoch=500,batch_size=10, show_metric=True)
 modelo.save("modelo.tflearn")
 
+# Preparo file para poder loggear la conversacion con el usuario.
+File_object_log = open(r"log.txt","a")
+
+
 # Funcion principal para correr el chatbot:
 def mainBot():
     while True:
         entrada = input("Tu: ")
+        
         cubeta = [0 for _ in range(len(palabras))]
         # Quito los caracteres especiales de lo que Ingreso el usuario
         entradaProcesada = nltk.word_tokenize(entrada)
@@ -109,8 +114,19 @@ def mainBot():
         for tagAux in datos["contenido"]:
           if tagAux["tag"] ==  tag:
              respuesta = tagAux["respuestas"]
-        print("Bot: ",random.choice(respuesta))
+        respuesta_dada = random.choice(respuesta)
+        print("Bot: ", respuesta_dada)
         # Printeo probabilidades de accuarcy
         print(resultados)
+        # Pequeño flag para decidir
+        print('Todavia estoy aprendiendo!, Te sirvio mi respuesta? --- (0:Si | 1:No)')
+        likeable = input("Tu: ")
+        # Loggeo la conversacion
+        if(likeable == '1' ):
+            File_object_log.write('El usuario pregunto: ' + entrada +'\n')
+            File_object_log.write('El chatbot respondio: ' + respuesta_dada +'\n')
+            File_object_log.write('El chatbot predijo que corresponde al TAG: ' + tag +'\n')
+            File_object_log.write('----------------------------------------------' +'\n')
+        print('--------------------------------------------------------------------')
 
 mainBot()

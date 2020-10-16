@@ -1,0 +1,4 @@
+El usuario pregunto: alfredo
+El chatbot respondio: Un raton jaja saludos.
+El chatbot predijo que corresponde al TAG: alfredo
+----------------------------------------------
